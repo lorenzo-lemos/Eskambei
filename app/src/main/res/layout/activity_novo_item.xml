@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NovoItem">
+
+    <EditText
+        android:id="@+id/editNome"
+        android:textSize="20sp"
+        android:hint="O que você está anunciando?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editCategoria"
+        android:textSize="20sp"
+        android:hint="Categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:id="@+id/rgEstado"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/rbNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Novo"/>
+
+        <RadioButton
+            android:id="@+id/rbUsado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usado"/>
+    </RadioGroup>
+
+    <Button
+        android:onClick="adicionarItem"
+        android:text="ADICIONAR ITEM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="menuItems"
+        android:text="VOLTAR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

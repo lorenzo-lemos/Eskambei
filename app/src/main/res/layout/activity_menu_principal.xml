@@ -23,6 +23,13 @@
         android:layout_gravity="center_horizontal"/>
 
     <Button
+        android:onClick="menuItems"
+        android:text="MEUS ITEMS"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
         android:onClick="deslogarUsuario"
         android:text="SAIR"
         android:layout_width="150dp"

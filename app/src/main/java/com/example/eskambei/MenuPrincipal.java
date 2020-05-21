@@ -32,16 +32,22 @@ public class MenuPrincipal extends AppCompatActivity {
         textWelcome.setText("Bem-vindo, "+user.getEmail());
     }
 
+    public void editarPerfil(View view) {
+        Intent editarPerfil = new Intent(MenuPrincipal.this,EditarPerfil.class);
+        startActivity(editarPerfil);
+        finish();
+    }
+
+    public void menuItems(View view) {
+        Intent menuItems = new Intent(MenuPrincipal.this, MenuItem.class);
+        startActivity(menuItems);
+        finish();
+    }
+
     public void deslogarUsuario(View view){
         mAuth.signOut();
         Intent inicio = new Intent(MenuPrincipal.this, PaginaInicial.class);
         startActivity(inicio);
-        finish();
-    }
-
-    public void editarPerfil(View view) {
-        Intent editarPerfil = new Intent(MenuPrincipal.this,EditarPerfil.class);
-        startActivity(editarPerfil);
         finish();
     }
 }
