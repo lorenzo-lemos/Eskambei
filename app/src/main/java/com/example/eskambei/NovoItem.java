@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,9 +24,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NovoItem extends AppCompatActivity {
+public class NovoItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private EditText editNome, editCategoria;
+    private EditText editNome;
+    private Spinner spCategoria;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -33,7 +37,11 @@ public class NovoItem extends AppCompatActivity {
         setContentView(R.layout.activity_novo_item);
 
         editNome = findViewById(R.id.editNome);
-        editCategoria = findViewById(R.id.editCategoria);
+        spCategoria = findViewById(R.id.spCategoria);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.categorias,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCategoria.setAdapter(adapter);
+        spCategoria.setOnItemSelectedListener(this);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -42,6 +50,16 @@ public class NovoItem extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         db = FirebaseFirestore.getInstance();
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     public void menuItems(View view) {
@@ -53,12 +71,14 @@ public class NovoItem extends AppCompatActivity {
     public void adicionarItem(View view) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         RadioGroup rgEstado = (RadioGroup)findViewById(R.id.rgEstado);
+        String id = user.getUid();
         String nome = editNome.getText().toString();
-        String categoria = editCategoria.getText().toString();
+        String categoria = spCategoria.getSelectedItem().toString();
         String estado = rgEstado.getCheckedRadioButtonId() == R.id.rbNovo ? "Novo" : "Usado";
 
         Map<String,Object> dadosItem = new HashMap<>();
 
+        dadosItem.put("id",id);
         dadosItem.put("nome",nome);
         dadosItem.put("categoria",categoria);
         dadosItem.put("estado",estado);

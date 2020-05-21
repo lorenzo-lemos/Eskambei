@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editCategoria"
+    <Spinner
+        android:id="@+id/spCategoria"
         android:textSize="20sp"
-        android:hint="Categoria"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"/>
 
     <RadioGroup
         android:id="@+id/rgEstado"

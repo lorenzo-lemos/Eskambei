@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Eskambei</string>
+
+    <string-array name="categorias">
+        <item>Acessórios</item>
+        <item>Automotivo</item>
+        <item>Eletrônicos</item>
+        <item>Esporte</item>
+    </string-array>
 </resources>

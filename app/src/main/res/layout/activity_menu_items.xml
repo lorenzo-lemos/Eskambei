@@ -25,4 +25,32 @@
             android:text="VOLTAR"
             android:layout_gravity="center_vertical"/>
     </GridLayout>
+    <GridLayout
+        android:columnCount="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textNomeItem"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_width="135dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/textCategoriaItem"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_width="135dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/textEstadoItem"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_width="135dp"
+            android:layout_height="30dp" />
+
+    </GridLayout>
+
 </LinearLayout>
