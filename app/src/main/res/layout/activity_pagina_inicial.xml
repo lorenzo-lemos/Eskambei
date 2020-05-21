@@ -9,42 +9,47 @@
 
     <TextView
         android:text="E-mail"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/editLogin"
-        android:layout_margin="3dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:text="Senha"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/editPassword"
-        android:gravity="center"
         android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:onClick="logarUsuario"
         android:text="ENTRAR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:onClick="registrarUsuario"
         android:text="REGISTRAR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -1,14 +1,13 @@
 package com.example.eskambei;
 
 public class Usuario {
-    private String id;
+
     private String nome;
     private String sobrenome;
     private String endereço;
-    private int telefone;
+    private String telefone;
 
-    public Usuario(String id, String nome, String sobrenome, String endereço, int telefone) {
-        this.id = id;
+    public Usuario(String nome, String sobrenome, String endereço, String telefone) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.endereço = endereço;
@@ -16,14 +15,6 @@ public class Usuario {
     }
 
     public Usuario() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -50,11 +41,11 @@ public class Usuario {
         this.endereço = endereço;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }
