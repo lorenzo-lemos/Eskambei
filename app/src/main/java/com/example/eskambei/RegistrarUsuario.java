@@ -34,7 +34,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if(user != null){
-            Intent menuPrincipal = new Intent(RegistrarUsuario.this,MenuPrincipal.class);
+            Intent menuPrincipal = new Intent(RegistrarUsuario.this,DadosCadastrais.class);
             startActivity(menuPrincipal);
             finish();
         }
@@ -48,7 +48,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         if (login.isEmpty() || password.isEmpty() || confPassword.isEmpty()) {
             Toast.makeText(RegistrarUsuario.this, "Preencha os Campos Corretamente!", Toast.LENGTH_SHORT).show();
         }else{
-            if(password == confPassword) {
+            //if(password == confPassword) {
                 mAuth.createUserWithEmailAndPassword(login, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -63,10 +63,10 @@ public class RegistrarUsuario extends AppCompatActivity {
                                 }
                             }
                         });
-            } else {
+            } /*else {
                 Toast.makeText(RegistrarUsuario.this, "Senhas incompatíveis!", Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
     }
 
     public void paginaInicial(View view) {

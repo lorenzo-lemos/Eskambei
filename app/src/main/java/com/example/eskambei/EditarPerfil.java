@@ -29,7 +29,6 @@ import java.util.Map;
 public class EditarPerfil extends AppCompatActivity {
 
     private EditText editNome, editSobrenome, editEndereço, editTelefone;
-
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
