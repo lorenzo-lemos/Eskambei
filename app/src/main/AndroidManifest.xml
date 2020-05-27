@@ -6,10 +6,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NovoItem"></activity>
+        <activity android:name=".MenuItemImage"></activity>
+        <activity android:name=".NovoItem" />
         <activity android:name=".MenuItem" />
         <activity android:name=".DadosCadastrais" />
         <activity android:name=".EditarPerfil" />

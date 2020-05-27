@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -67,7 +68,6 @@ public class NovoItem extends AppCompatActivity implements AdapterView.OnItemSel
         startActivity(menuItems);
         finish();
     }
-
     public void adicionarItem(View view) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         RadioGroup rgEstado = (RadioGroup)findViewById(R.id.rgEstado);
@@ -76,18 +76,12 @@ public class NovoItem extends AppCompatActivity implements AdapterView.OnItemSel
         String categoria = spCategoria.getSelectedItem().toString();
         String estado = rgEstado.getCheckedRadioButtonId() == R.id.rbNovo ? "Novo" : "Usado";
 
-        Map<String,Object> dadosItem = new HashMap<>();
+        Item item = new Item(id,nome,categoria,estado);
 
-        dadosItem.put("id",id);
-        dadosItem.put("nome",nome);
-        dadosItem.put("categoria",categoria);
-        dadosItem.put("estado",estado);
-
-        db.collection("items").document(user.getUid())
-                .set(dadosItem)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("items").add(item)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
+                    public void onSuccess(DocumentReference documentReference) {
                         String message = "Item Cadastrado com Sucesso!";
                         Toast.makeText(NovoItem.this,message,Toast.LENGTH_SHORT).show();
                         menuItems(null);
@@ -96,9 +90,11 @@ public class NovoItem extends AppCompatActivity implements AdapterView.OnItemSel
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        String message = "Falha ao Adicionar Item!";
+                        String message = "Falha ao Cadastrar Item!";
                         Toast.makeText(NovoItem.this,message,Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
     }
 }

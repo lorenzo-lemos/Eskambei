@@ -44,6 +44,12 @@ public class MenuPrincipal extends AppCompatActivity {
         finish();
     }
 
+    public void menuItemsImage(View view) {
+        Intent menuItemsImage = new Intent(MenuPrincipal.this, MenuItemImage.class);
+        startActivity(menuItemsImage);
+        finish();
+    }
+
     public void deslogarUsuario(View view){
         mAuth.signOut();
         Intent inicio = new Intent(MenuPrincipal.this, PaginaInicial.class);

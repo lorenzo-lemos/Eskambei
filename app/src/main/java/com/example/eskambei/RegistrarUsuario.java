@@ -47,10 +47,9 @@ public class RegistrarUsuario extends AppCompatActivity {
 
         if (login.isEmpty() || password.isEmpty() || confPassword.isEmpty()) {
             Toast.makeText(RegistrarUsuario.this, "Preencha os Campos Corretamente!", Toast.LENGTH_SHORT).show();
-        }else{
-            if(password != confPassword) {
-                Toast.makeText(RegistrarUsuario.this, "Senhas incompatíveis!", Toast.LENGTH_SHORT).show();
-
+        }else {
+            if(!password.equals(confPassword)) {
+                   Toast.makeText(RegistrarUsuario.this, "Senhas incompatíveis!", Toast.LENGTH_SHORT).show();
             }else {
                 mAuth.createUserWithEmailAndPassword(login, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -69,6 +68,7 @@ public class RegistrarUsuario extends AppCompatActivity {
             }
         }
     }
+
 
     public void paginaInicial(View view) {
         Intent paginaInicial = new Intent(RegistrarUsuario.this, PaginaInicial.class);

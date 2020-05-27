@@ -62,7 +62,7 @@ public class MenuItem extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
 
-        items.whereEqualTo("id",id)
+        items.whereEqualTo("idUsuario",id)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
