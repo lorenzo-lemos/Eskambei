@@ -6,12 +6,14 @@ public class Item {
     private String nome;
     private String categoria;
     private String estado;
+    private String urlImagem;
 
-    public Item(String idUsuario, String nome, String categoria, String estado) {
+    public Item(String idUsuario, String nome, String categoria, String estado, String urlImagem) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.categoria = categoria;
         this.estado = estado;
+        this.urlImagem = urlImagem;
     }
 
     public Item() {
@@ -47,5 +49,13 @@ public class Item {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 }

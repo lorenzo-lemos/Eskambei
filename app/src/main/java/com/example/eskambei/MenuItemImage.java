@@ -85,6 +85,7 @@ public class MenuItemImage extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Toast.makeText(MenuItemImage.this,"Upload Efetuado com Sucesso!",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
