@@ -2,12 +2,16 @@ package com.example.eskambei;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
+import com.example.eskambei.adapter.ItemAdapter;
+import com.example.eskambei.model.Item;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,27 +26,43 @@ import java.util.List;
 
 public class MenuItem extends AppCompatActivity {
 
-    private TextView textNomeItem, textCategoriaItem, textEstadoItem;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private RecyclerView recyclerView;
+    List<Item> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = FirebaseFirestore.getInstance();
+        items = carregarDados(null);
+
         setContentView(R.layout.activity_menu_items);
 
-        textNomeItem = findViewById(R.id.textNomeItem);
-        textCategoriaItem = findViewById(R.id.textCategoriaItem);
-        textEstadoItem = findViewById(R.id.textEstadoItem);
 
-        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        db = FirebaseFirestore.getInstance();
-        carregarDados(null);
+        recyclerView = findViewById(R.id.recyclerView);
+
+
+
+
+        //Define Layout
+
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(layoutManager.VERTICAL);
+        LinearLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        //Define adapter
+        ItemAdapter adapter = new ItemAdapter(null);
+        recyclerView.setAdapter(adapter);
+        mAuth = FirebaseAuth.getInstance();
+
+
     }
 
     public void menuPrincipal(View view) {
@@ -57,7 +77,8 @@ public class MenuItem extends AppCompatActivity {
         finish();
     }
 
-    public void carregarDados(View view){
+    public List<Item> carregarDados(View view){
+        final List<Item> listItem = new ArrayList<>();
         CollectionReference items = db.collection("items");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
@@ -68,24 +89,13 @@ public class MenuItem extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
-                            List<Item> listItem = new ArrayList<>();
+
                             for(QueryDocumentSnapshot document : task.getResult()){
                                 listItem.add(document.toObject(Item.class));
                             }
-                            String nome ="";
-                            String categoria ="";
-                            String estado ="";
-                            for(Item i : listItem){
-                                nome = i.getNome();
-                                categoria = i.getCategoria();
-                                estado = i.getEstado();
-
-                            }
-                            textNomeItem.setText(nome);
-                            textCategoriaItem.setText(categoria);
-                            textEstadoItem.setText(estado);
                         }
                     }
                 });
+        return listItem;
     }
 }

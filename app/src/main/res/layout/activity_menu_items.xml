@@ -7,51 +7,8 @@
     android:orientation="vertical"
     tools:context=".MenuItem">
 
-    <GridLayout
-        android:columnCount="2"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="210dp"
-            android:layout_height="50dp"
-            android:onClick="adicionarItem"
-            android:text="ADICIONAR ITEM"
-            android:layout_gravity="center_vertical"/>
-
-        <Button
-            android:layout_width="210dp"
-            android:layout_height="50dp"
-            android:onClick="menuPrincipal"
-            android:text="VOLTAR"
-            android:layout_gravity="center_vertical"/>
-    </GridLayout>
-    <GridLayout
-        android:columnCount="3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textNomeItem"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:layout_width="135dp"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/textCategoriaItem"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:layout_width="135dp"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/textEstadoItem"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:layout_width="135dp"
-            android:layout_height="30dp" />
-
-    </GridLayout>
-
-
+        android:layout_height="match_parent" />
 </LinearLayout>
