@@ -1,4 +1,4 @@
-package com.example.eskambei;
+package com.example.eskambei.model;
 
 public class Item {
 
