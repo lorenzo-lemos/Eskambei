@@ -2,15 +2,11 @@ package com.example.eskambei;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.eskambei.adapter.ItemAdapter;
 import com.example.eskambei.model.Item;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +24,6 @@ public class MenuItem extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private RecyclerView recyclerView;
     List<Item> items = new ArrayList<>();
 
     @Override
@@ -45,24 +40,6 @@ public class MenuItem extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        recyclerView = findViewById(R.id.recyclerView);
-
-
-
-
-        //Define Layout
-
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        //layoutManager.setOrientation(layoutManager.VERTICAL);
-        LinearLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(layoutManager);
-
-        //Define adapter
-        ItemAdapter adapter = new ItemAdapter(null);
-        recyclerView.setAdapter(adapter);
-        mAuth = FirebaseAuth.getInstance();
-
-
     }
 
     public void menuPrincipal(View view) {

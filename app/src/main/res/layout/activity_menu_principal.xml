@@ -7,33 +7,51 @@
     android:orientation="vertical"
     tools:context=".MenuPrincipal">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
         android:id="@+id/textWelcome"
-        android:textSize="20sp"
-        android:gravity="center"
         android:layout_width="400dp"
         android:layout_height="30dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50sp"
+        android:layout_marginBottom="90sp"
+        android:gravity="center"
+        android:textSize="20sp" />
 
     <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5sp"
+        android:background="@color/colorPrimary"
         android:onClick="editarPerfil"
         android:text="EDITAR PERFIL"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"/>
+        android:textColor="#FFFFFF" />
 
     <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5sp"
+        android:background="@color/colorSecondary"
         android:onClick="menuItems"
         android:text="MEUS ITEMS"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"/>
+        android:textColor="#FFFFFF" />
 
     <Button
-        android:onClick="deslogarUsuario"
-        android:text="SAIR"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5sp"
+        android:background="#F1B0C6"
+        android:onClick="deslogarUsuario"
+        android:text="SAIR"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

@@ -7,8 +7,34 @@
     android:orientation="vertical"
     tools:context=".MenuItem">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ImageView
+        android:id="@+id/imageView6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="5sp"
+        android:background="@color/colorPrimary"
+        android:minWidth="150sp"
+        android:onClick="adicionarItem"
+        android:text="ADICIONAR ITEM"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:background="@color/colorSecondary"
+        android:minWidth="150sp"
+        android:onClick="menuPrincipal"
+        android:text="VOLTAR"
+        android:textColor="#FFFFFF" />
 </LinearLayout>
